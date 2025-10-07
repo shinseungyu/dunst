@@ -1,0 +1,869 @@
+/* 배너,헤더 */
+.banner{
+    height: 100vh;
+    background-color: antiquewhite;
+}
+
+.header_area{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 200px;
+    width: 100%;
+    padding: 0px 50px;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+
+    transition: 0.3s;
+}
+.header_logo{
+    width: 448px;
+    height: 142px;
+    display: flex;
+
+    transition: 0.3s;
+}
+
+.header_logo svg{
+    transition: 0.3s;
+}
+
+.header_logo:hover svg{
+    fill: #764825;
+    /* svg 컬러는 fill,stroke 변경 */
+}
+/* -------------------------------------------------- */
+/* header 스크롤 이벤트 on 클래스 추가 */
+.header_area.on {
+    height: 80px;
+    border-bottom: 1px solid #000;
+    background-color: #fff;
+    padding: 16px;
+}
+
+.header_logo.on{
+    width: 160px;
+    height: 50px;
+}
+
+.menu_btn.on{
+    width: 30px;
+    height: 20px;
+}
+
+/* -------------------------------------------------- */
+/* 메뉴버튼 */
+.menu_btn{
+    width: 40px;
+    height: 25px;
+    display: block;
+    position: relative;
+
+    transition: 0.3s;
+}
+
+.menu_btn span{
+    width: 100%;
+    height: 3px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #000;
+
+    transition: 0.3s;
+}
+
+.menu_btn span:nth-child(2){
+    top: 50%;
+}
+
+.menu_btn span:nth-child(3){
+    top: 100%;
+}
+
+/* -------------------------------------------------- */
+/* 메뉴 버튼 클릭 active 설정 */
+.menu_btn.active{
+    transform: rotate(30deg);
+}
+
+.menu_btn.active span{
+    background-color: #fff;
+}
+
+.menu_btn.active span:nth-child(1){
+    width: 50%;
+}
+
+.menu_btn.active span:nth-child(2) {
+    width: 75%;
+}
+
+.menu_bar_box.active{
+    opacity: 1;
+    z-index: 99;
+    /* 헤더보다 위에 있으면 햄버거버튼 안눌림 */
+}
+
+/* -------------------------------------------------- */
+/* 서브메뉴박스 */
+.menu_bar_box{
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    padding: 0px 32px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0;
+    z-index: -1;
+
+    transition: 0.3s;
+}
+
+.menu_bar{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.menu_bar .menu{
+    font-size: 4.375rem;
+    color: #fff;
+    margin-right: 20px;
+
+    transition: 0.3s;
+}
+.menu_bar .menu:hover{
+    color: #4f5c7f;
+}
+
+/* ------------------------------------------------- */
+/* swiper */
+.slider_wrap{
+    width: 100%;
+    height: 100%;
+}
+
+.slider_wrap .auto_slider{
+    width: 400%;
+    height: 100%;
+    display: flex;
+}
+
+.slider_wrap .slider{
+    width: 25%;
+    height: 100%;
+}
+
+.slider_wrap .slider1{
+    background: url(../img/banner0.jpg) no-repeat center top / cover;
+}
+
+.slider_wrap .slider2 {
+    background: url(../img/banner2.jpg) no-repeat center top / cover;
+}
+
+.slider_wrap .slider3 {
+    background: url(../img/banner.jpg) no-repeat center bottom / cover;
+}
+
+.slider_wrap .slider4 {
+    background: url(../img/banner4.jpg) no-repeat center / cover;
+}
+
+/* 스와이퍼 버튼 커스텀 */
+/* 버튼 컬러 원하는 컬러로 변경 / 사이즈 40px / 왼쪽 버튼은 왼쪽에서 50px / 오른쪽버튼은 오른쪽에서 50px */
+.swiper-button-next,
+.swiper-button-prev{
+    color: #fff !important;
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after{
+    font-size: 40px !important;
+}
+
+.swiper-button-prev,
+.swiper-rtl .swiper-button-next{
+    left: 50px !important;
+}
+
+.swiper-button-next,
+.swiper-rtl .swiper-button-prev{
+    right: 50px !important;
+}
+
+/* -------------------------- */
+
+/* 공통스타일 */
+.container{
+    width: 1200px;
+    margin: 0 auto;
+    padding: 100px 0 150px;
+}
+
+.section_head_box .section_head{
+    font-size: 3rem;
+    font-weight: 400;
+    margin-bottom: 45px;
+    color: #222;
+    cursor: pointer;
+}
+
+/* -------------------------- */
+/* sec_1 */
+.sec_1 .section_head_box{
+    display: flex;
+    justify-content: space-between;
+}
+
+/* 늘어나는 화살표 */
+.sec_1 .arrow_r{
+    width: 300px;
+    height: 40px;
+    background: url(../img/arrow-short.svg) no-repeat left top / contain;
+
+    transition: 0.3s;
+}
+
+.sec_1 .arrow_r:hover{
+    background: url(../img/arrow-long.svg) no-repeat left top / contain;
+}
+
+/* 애니메이션 슬라이더 박스 -> 계쏙 굴러가는 슬라이더 구현 */
+.sec_1 .animate_slider_wrap{
+    display: flex;
+    overflow: hidden;
+}
+
+.sec_1 .animate_slider{
+    display: flex;
+    animation: slider 50s linear infinite;
+}
+
+/* 키프레임 설정해서 자동으로 굴러가는 animate 설정 */
+@keyframes slider {
+    0%{
+        transform: translateX(0);
+    }   
+    100%{
+        transform: translateX(-100%);
+    }
+}
+
+.sec_1 .animate_slider a{
+    display: flex;
+    /* div 태그를 묶고있는 a태그는 신경써서 display요소 바꿔주기 */
+}
+
+.sec_1 .content{
+    width: 395px;
+    height: 550px;
+    margin-right: 15px;
+    background-color: #222;
+    border: 1px solid #dbdbdb;
+}
+
+.sec_1 .con_1{
+    background: url(../img/slider_0.jpg) no-repeat center top / cover;
+    transition: 0.3s;
+}
+
+.sec_1 .con_2 {
+    background: url(../img/slider_1.jpg) no-repeat center top / cover;
+    transition: 0.3s;
+}
+
+.sec_1 .con_3 {
+    background: url(../img/slider_2.jpg) no-repeat center top / cover;
+    transition: 0.3s;
+}
+
+.sec_1 .con_4 {
+    background: url(../img/slider_3.jpg) no-repeat center top / cover;
+    transition: 0.3s;
+}
+
+.sec_1 .con_5 {
+    background: url(../img/slider_4.jpg) no-repeat center top / cover;
+    transition: 0.3s;
+}
+
+.sec_1 .con_6 {
+    background: url(../img/slider_5.jpg) no-repeat center top / cover;
+    transition: 0.3s;
+}
+
+/* hover하면 이미지 호버이미지로 바뀌도록 처리해보기 */
+.sec_1 .con_1:hover {
+    background: url(../img/slider_0_hover.jpg) no-repeat center top / cover;
+}
+
+.sec_1 .con_2:hover {
+    background: url(../img/slider_1_hover.jpg) no-repeat center top / cover;
+}
+
+.sec_1 .con_3:hover {
+    background: url(../img/slider_2_hover.jpg) no-repeat center top / cover;
+}
+
+.sec_1 .con_4:hover {
+    background: url(../img/slider_3_hover.jpg) no-repeat center top / cover;
+}
+
+.sec_1 .con_5:hover {
+    background: url(../img/slider_4_hover.jpg) no-repeat center top / cover;
+}
+
+.sec_1 .con_6:hover {
+    background: url(../img/slider_5_hover.jpg) no-repeat center top / cover;
+}
+
+/* ---------------------------- */
+/* sec2 */
+.sec_2 .about{
+    display: flex;
+    margin-right: -20px;
+}
+
+.sec_2 .aboutbox{
+    margin-right: 20px;
+    width: calc(50% - 20px);
+}
+
+.sec_2 .store{
+    background: url(../img/about.jpg) no-repeat left top / cover;
+    height: 390px;
+}
+
+.sec_2 .right p{
+    font-size: 0.875rem;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.sec_2 .right span{
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+    display: block;
+}
+
+/* ---------------------------- */
+/* sec3 */
+.sec_3 .insta_container{
+    width: 935px;
+    margin: 0 auto;
+}
+.sec_3 .profile{
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: linear-gradient(24deg,
+        rgba(131,58,180,1) 0%,
+        rgba(253,29,29,1) 49%,
+        rgba(252,176,69,1) 100%
+    );
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+.sec_3 .profile a{
+    display: flex;
+    width: 172px;
+    height: 172px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.sec_3 .profile_link{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.sec_3 .profile_link a{
+    font-size: 1.75rem;
+    font-weight: 300;
+    color: #252525;
+}
+
+.sec_3 .profile_btn{
+    cursor: pointer;
+    padding: 5px 9px;
+
+    font-size: 0.875rem;
+    font-weight: 600;
+    background-color: #0095f6;
+    color: #fff;
+    border-radius: 3px;
+    margin-left: 5px;
+}
+
+/* 하이라이트  */
+.sec_3 .highlight{
+    display: flex; 
+    justify-content: space-between;
+    padding-bottom: 35px;
+    border-bottom: 1px solid #c4c4c4;
+    margin-bottom: 70px;
+}
+
+.sec_3 .highlight .con{
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    border: 1px solid #c4c4c4;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sec_3 .highlight .con img{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+.sec_3 .highlight .txt{
+    font-weight: 600;
+    text-align: center;
+    color: #252525;
+    font-size: 0.8rem;
+    margin-top: 10px;
+
+    /* 텍스트 너비값 지정해서 넘치는 텍스트 점처리 */
+    width: 90px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.sec_3 .feed{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -3px;
+    margin-right: -3px;
+    /* 좌우로 여백이 3px씩 들어간경우 좌우 각각 제거 */
+}
+
+.sec_3 .feed .con_box{
+    margin: 3px;
+    width: calc(33.333% - 6px);
+    padding-bottom: calc(33.333% - 6px);
+    cursor: pointer;
+    background-color: lavender;
+    position: relative;
+}
+
+.sec_3 .con_back{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.sec_3 .feed .con_box:hover .con_back{
+    opacity: 1;
+}
+
+.sec_3 .con_back p{
+    color: #fff;
+}
+.sec_3 .like_box{
+    display: flex;
+    align-items: center;
+}
+.sec_3 .icon{
+    width: 25px;
+    height: 25px;
+}
+
+.sec_3 .icon.like{
+    background: url(../img/heart_bold.svg) no-repeat left top / cover;
+}
+
+.sec_3 .icon.comment {
+    background: url(../img/comment_bold.svg) no-repeat left top / cover;
+    margin-left: 20px;
+}
+
+.sec_3 .feed .feed1 {
+    background: url(../img/insta_1.jpg) no-repeat center top / cover;
+}
+
+.sec_3 .feed .feed2 {
+    background: url(../img/insta_2.jpg) no-repeat center top / cover;
+}
+
+.sec_3 .feed .feed3 {
+    background: url(../img/insta_3.jpg) no-repeat center top / cover;
+}
+
+.sec_3 .feed .feed4 {
+    background: url(../img/insta_4.jpg) no-repeat center top / cover;
+}
+
+.sec_3 .feed .feed5 {
+    background: url(../img/insta_5.jpg) no-repeat center top / cover;
+}
+
+.sec_3 .feed .feed6 {
+    background: url(../img/insta_6.jpg) no-repeat center top / cover;
+}
+
+.sec_3 .feed .feed7 {
+    background: url(../img/insta_7.jpg) no-repeat center top / cover;
+}
+
+.sec_3 .feed .feed8 {
+    background: url(../img/insta_8.jpg) no-repeat center top / cover;
+}
+
+.sec_3 .feed .feed9 {
+    background: url(../img/insta_9.jpg) no-repeat center center / cover;
+}
+
+.sec_3 .feed .feed10 {
+    background: url(../img/insta_10.jpg) no-repeat center center / cover;
+}
+
+.sec_3 .feed .feed11 {
+    background: url(../img/insta_11.jpg) no-repeat center top / cover;
+}
+
+.sec_3 .feed .feed12 {
+    background: url(../img/insta_12.jpg) no-repeat center top / cover;
+}
+
+footer{
+    padding: 50px 170px;
+    background-color: #222;
+}
+.f_box{
+    display: flex;
+}
+
+.f_box li{
+    margin-right: 30px;
+}
+
+.f_box a{
+    color: #fff;
+    font-size: 2rem;
+}
+
+/* ---------------------------------- */
+/* 내부 미디어쿼리 : 반응형 작업 */
+/* 1200px 이하 */
+@media (max-width: 1200px) {
+
+    html,
+    body {
+        font-size: 90%;
+    }
+
+    .banner {
+        height: 60vh;
+    }
+
+    .header_area {
+        height: auto;
+        padding: 10px 32px;
+    }
+
+    .header_logo {
+        width: 268px;
+        height: 92px;
+    }
+
+    .menu_btn {
+        width: 35px;
+        height: 20px;
+    }
+
+    .container {
+        width: 960px;
+    }
+
+    /* ---------------------------------- */
+    /* 반응형 작업시 서브메뉴 잊지말고 스타일 변경 */
+    .menu_bar {
+        display: block;
+        text-align: center;
+    }
+
+    .menu_bar .menu {
+        font-size: 2.5rem;
+        margin-right: 0;
+        margin-bottom: 10px;
+        display: block;
+        pointer-events: none;
+    }
+
+    /* ---------------------------------- */
+    .sec_1 .arrow_r {
+        display: none;
+    }
+
+    /* ---------------------------------- */
+    .sec_2 .about {
+        display: block;
+        margin-right: 0;
+    }
+
+    .sec_2 .left,
+    .sec_2 .right {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    .sec_2 .store {
+        padding-bottom: 66.666%;
+        height: auto;
+    }
+
+    .sec_2 .left {
+        margin-bottom: 20px;
+    }
+
+    .sec_2 .right p {
+        font-size: 1rem;
+    }
+
+    .sec_2 .right span {
+        font-size: 1.3rem;
+    }
+
+    /* ---------------------------------- */
+    footer {
+        padding: 30px 50px;
+    }
+}
+
+/* 960px 이하 */
+@media (max-width: 960px) {
+
+    /* 스와이퍼 버튼 안보이게 처리하기 */
+    .swiper-button-next,
+    .swiper-button-prev {
+        opacity: 0;
+    }
+
+    html,
+    body {
+        font-size: 85%;
+    }
+
+    .header_area {
+        padding: 10px;
+    }
+
+    .container,
+    .sec_3 .insta_container {
+        width: 760px;
+    }
+}
+
+/* 760px 이하 */
+@media (max-width: 760px) {
+    .container {
+        width: 100%;
+        padding-left: 16px;
+        padding-right: 16px;
+        /* 모바일 그리드에서는 전체너를 100%로 설정해주고 양쪽 내부 최소 16px 최대 32px 주는 것이 일반적이다 */
+        padding-top: 68px;
+        padding-bottom: 68px;
+    }
+
+    /* ---------------------------------- */
+    .sec_1 .animate_slider_wrap {
+        margin-right: -10px;
+    }
+
+    .sec_1 .animate_slider {
+        animation: none;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
+    .sec_1 .animate_slider.box2 {
+        display: none;
+    }
+
+    .sec_1 .animate_slider a {
+        margin-right: 10px;
+        width: calc(50% - 10px);
+        height: 455px;
+        margin-bottom: 10px;
+    }
+
+    .sec_1 .content {
+        width: 100%;
+        height: 100%;
+        margin-right: 0;
+        pointer-events: none;
+    }
+
+    /* ---------------------------------- */
+    .sec_3 .insta_container {
+        width: 100%;
+    }
+
+    .sec_3 .highlight {
+        justify-content: center;
+        margin-right: -40px;
+        border: none;
+        margin-bottom: 0;
+    }
+
+    .sec_3 .highlight .con_box {
+        margin-right: 40px;
+    }
+
+    .sec_3 .highlight .con_box:nth-child(odd) {
+        display: none;
+    }
+
+    /* ---------------------------------- */
+    .f_box a {
+        font-size: 1.8rem;
+    }
+}
+
+/* 500px 이하 */
+@media (max-width: 500px) {
+
+    html,
+    body {
+        font-size: 60%;
+    }
+
+    .header_logo,
+    .header_logo.on {
+        width: 110px;
+        height: 40px;
+    }
+
+    .header_area.on {
+        height: auto;
+        padding: 10px;
+    }
+
+    .menu_btn,
+    .menu_btn.on {
+        width: 25px;
+        height: 15px;
+    }
+
+    /* ---------------------------------- */
+    .section_head_box .section_head {
+        margin-bottom: 25px;
+    }
+
+    .sec_1 .animate_slider_wrap {
+        margin-right: 0;
+    }
+
+    .sec_1 .animate_slider a {
+        width: 100%;
+        margin-right: 0;
+        height: 665px;
+    }
+
+    /* ---------------------------------- */
+    .sec_2 .right p {
+        font-size: 1.3rem;
+    }
+
+    .sec_2 .right span {
+        font-size: 1.5rem;
+    }
+
+    /* ---------------------------------- */
+    .sec_3 .container {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .sec_3 .section_head_box .section_head {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .sec_3 .profile {
+        width: 130px;
+        height: 130px;
+    }
+
+    .sec_3 .profile a {
+        width: 124px;
+        height: 124px;
+    }
+
+    .sec_3 .profile_link a {
+        font-weight: 400;
+    }
+
+    .sec_3 .profile_btn {
+        padding: 3px 6px;
+        font-size: 1.2rem;
+    }
+
+    .sec_3 .highlight {
+        padding-bottom: 20px;
+    }
+
+    .sec_3 .highlight .con {
+        width: 80px;
+        height: 80px;
+    }
+
+    .sec_3 .highlight .con img {
+        width: 70px;
+        height: 70px;
+    }
+
+    .sec_3 .highlight .txt {
+        font-size: 1.2rem;
+        width: 100%;
+    }
+
+    .sec_3 .num {
+        font-size: 1.3rem;
+    }
+
+    /* ---------------------------------- */
+    footer {
+        padding: 16px 24px;
+    }
+
+    .f_box li {
+        margin-right: 20px;
+    }
+}
